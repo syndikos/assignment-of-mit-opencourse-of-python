@@ -1,0 +1,20 @@
+#to find the biggest even number of any three numbers x, y,z
+def ifeven(x):
+    if (x%2)==0:
+        return False
+    else:
+        return True
+x=int(input('input the first number:'))
+y=int(input('input the second number:'))
+z=int(input('input the third number:'))
+
+if ifeven(x) and x>y and x>z:
+    print(x)
+else:
+    if y>z and ifeven(y):
+        print(y)
+    else:
+        if ifeven(z):
+            print(z)
+        else:
+            print(' they are all odd ')
