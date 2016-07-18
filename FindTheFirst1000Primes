@@ -1,0 +1,21 @@
+
+def ifprime(x):
+    test=1
+    for y in range(2,x):
+        if (x%y)==0:
+            test=0
+
+    if test==0:
+        return False
+    else:
+        return True
+
+dividend,divisor,scaler=3,2,0
+
+print(2)
+
+while scaler<999:
+    if ifprime(dividend):
+        print(dividend)
+        scaler=scaler+1
+    dividend=dividend+2
