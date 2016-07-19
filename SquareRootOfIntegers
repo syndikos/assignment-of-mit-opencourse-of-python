@@ -1,0 +1,15 @@
+ans,numGuess=0,0
+x=int(input('Enter a positive integer:',))
+if x<0:
+      x=int(input('The number you input is negative plz input a positive one:'))
+while ans**2<x:
+    numGuess+=1
+    ans+=1
+if ans**2!=x:
+    print('numGusee is',numGuess)
+    print('there is no integer root for ',x )
+else:
+    #if x<0:
+        #ans=-ans
+    print('numGuess is', numGuess)
+    print('the root of x is ', ans)
