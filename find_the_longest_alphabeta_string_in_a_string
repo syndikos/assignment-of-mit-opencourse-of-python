@@ -1,0 +1,52 @@
+#define a fuction to get the first alphabeta string in a string S
+def alphabeta_str(s):
+	s0 = s[0]
+	len_s = len(s) - 1
+	for x in range(len_s):
+		if s[x] < s[x + 1]:
+			s0 = s0 + s[x + 1]
+		else:
+			break
+			pass
+		pass
+	return s0
+
+	pass
+#define a function to compare the lenght of two alphabeta strings
+#if the first one is short than the second one, return the second one
+#else,always return the first one, the order of (x, y) is sensitive.
+
+def the_longer_of_two_alphabeta_strings(x, y):
+	if len(x) < len(y):
+		return y
+	else:
+		return x
+		pass
+
+
+	pass
+
+#define a function to create a serial vaviable name for the alphabeta strings
+#constructed by the process
+
+# def alpha_beta_string_name(x):
+# 	return 'str_' + str(x)
+
+#define a function to get a new string after taking way a alphabeta string from 
+#the former string
+
+def new_string(s):
+	alphabeta_str(s)
+	
+	return s[len(alphabeta_str(s)) :]
+
+	pass
+#construct an iteration that get a alphabeta string s0 and a new alphabeta string s1
+# and compare the lenght of s1 and s2, keep the longer and give the shorter another value
+# if the lenghts of s1 and s2 are equal, keep s1. when s2 is equal new_s, stop the iteration 
+#and return the longer of s1 and s2, if the lenghts of s1 and s2 are equal, return s1
+s1 = alphabeta_str(s)
+s2 = ''
+while s2 != new_string(s):
+
+	pass
