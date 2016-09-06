@@ -1,0 +1,34 @@
+def convert_base_10_to_base_y(x, y):
+	if abs(x) < y:
+		print('there is no neccesary to convert it')
+		
+	elif y <= 0:
+		print('we cannt convert it')
+	else:
+	
+				
+		if x < 0:
+			isNeg = True
+			x = abs(x)
+		else:
+			isNeg = False
+			pass
+
+		result = ''
+
+		if x == 0:
+			result = '0'
+
+			pass
+
+		while x > y:
+			result = str(x % y) + result
+			x = x // y
+			pass
+
+		if isNeg:
+			result = '-' + result
+		return float(result)
+	pass
+			
+
