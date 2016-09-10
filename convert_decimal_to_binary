@@ -54,7 +54,7 @@ def binary(num):
   int_part = int(num)
   decimal_part = abs(num - int_part)
   isNeg = 0
-  if (num - int_part) < 0:
+  if num  < 0:
     isNeg = True
         
   else:
@@ -111,8 +111,8 @@ def binary(num):
 
       ans = '0' + decimal_part
       
-      if isNeg:
-        result = '-' + result
+  if isNeg:
+    ans = '-' + ans
   return ans
   print(ans)
       
