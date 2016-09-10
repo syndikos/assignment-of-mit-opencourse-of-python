@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # define a fuction to  convert any number in decimal system to binary.
 
-def int_bin(num):
+def bin_int(num):
   isNeg = 0
-  ans = 0
+  
   num = int(num)
   if num < 0:
       isNeg = True
@@ -53,12 +53,8 @@ def binary(num):
       
   int_part = int(num)
   decimal_part = abs(num - int_part)
-  isNeg = 0
-  if num  < 0:
-    isNeg = True
-        
-  else:
-    isNeg = False
+  
+ 
 
 
 
@@ -68,7 +64,7 @@ def binary(num):
 
 #get binary for integer number  
   if decimal_part == 0:
-    ans = int_bin(num)
+    ans = bin_int(num)
     return ans
 
 
@@ -76,6 +72,7 @@ def binary(num):
 #convert to binary for decimal number 
   else:
     decimal_part = bin_decimal_part(decimal_part)
+    int_part = bin_int(int_part)
 
     
 #     count = 0
@@ -88,7 +85,7 @@ def binary(num):
 #     decimal_part = int(decimal_part)
     
 
-#     decimal_part = int_bin(decimal_part)
+#     decimal_part = bin_int(decimal_part)
 #     decimal_part = str(decimal_part)
 #     for i in range(count - len(decimal_part)):
 #       decimal_part = '0' + decimal_part
@@ -111,9 +108,12 @@ def binary(num):
 
       ans = '0' + decimal_part
       
-  if isNeg:
-    ans = '-' + ans
+
   return ans
   print(ans)
       
     
+	
+
+
+
