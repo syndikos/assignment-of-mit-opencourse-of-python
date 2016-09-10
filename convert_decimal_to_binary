@@ -1,31 +1,77 @@
+
+    
 # -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
+# define a fuction to  convert any number in decimal system to binary.
 def binary(num):
-   
-   isNeg = 0
-   if num < 0:
-       isNeg = True
-       num = abs(num)
-   else:
-        isNeg = False
+ 
 
-#define a function to get binary for int number.   
-    def int_bin(num):
-        result = ''
-        if num == 0:
-            result = '0'
-        while num > 0:
-            result = str(num%2) + result
-            num = num // 2
-        if isNeg:
-            result = '-' + result
-        return result
-        
-    int_part = int(num)
-    decimal_part = num - int_part
-    if 
+#define a subfunction to get binary from int number.   
+  def int_bin(num):
+    isNeg = 0
+    ans = 0
+    num = int(num)
+    if num < 0:
+        isNeg = True
+        num = abs(num)
+    else:
+        isNeg = False
+    result = ''
+    if num == 0:
+        result = '0'
+    while num > 0:
+        result = str(num%2) + result
+        num = num // 2
+    if isNeg:
+        result = '-' + result
+    return result
+      
+  int_part = int(num)
+  decimal_part = num - int_part
+
+
+#get binary for integer number  
+  if decimal_part == 0:
+    ans = int_bin(num)
+    return ans
+
+
+
+#convert to binary for decimal number 
+  else:
+
+    isNeg = 0
+    ans = 0
+    if num < 0:
+        isNeg = True
+        num = abs(num)
+    else:
+        isNeg = False
+     
+    count = 0
+#convert a decimal number to integer number by muliplate a big enough number    
+    while int(decimal_part) != float(decimal_part):
+      decimal_part = decimal_part * 2
+      count += 1
+      pass
+    
+    decimal_part = int(decimal_part)   
+    decimal_part = str(decimal_part)
+    
+  
+    decimal_part = decimal_part[0 : -count] + '.' + decimal_part[-count : ]
+    
+#for numbers whoes first digital is not zero
+    if abs(num) > 1:
+      #decimal_part = decimal_part[1 : ]
+      ans = str(int_part) + decimal_part
+     
+#for numbers whoes first digital is zero
+    else:
+
+      ans = '0' + decimal_part
+  if isNeg:
+    result = '-' + result
+  return ans
+  print(ans)
+      
     
