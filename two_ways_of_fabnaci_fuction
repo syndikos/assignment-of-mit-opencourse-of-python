@@ -1,0 +1,27 @@
+def fabRecur(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fabRecur(n - 1) + fabRecur(n - 2)
+    
+
+        
+def fabIter(n):
+    
+
+    def fab_Iter(a, b, count):
+            if count == 0:
+                return b
+            else:
+                return fab_Iter(a + b, a, count - 1)
+    
+    return fab_Iter(1, 0, n)
+
+
+for i in range(20):
+    if fabRecur(i) != fabIter(i):
+        print('They are not equal')
+        break
+print('They are equal')
