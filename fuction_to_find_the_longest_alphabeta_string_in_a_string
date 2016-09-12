@@ -1,0 +1,54 @@
+def longestStr(s):
+    """
+    s: string, to find the longest alphabeta string in s
+    
+    """
+    targetStr = ''
+    
+    
+    
+    
+    
+    def continuumStr(s):
+        """
+        s: string, to find the first alphabeta string in s
+        """
+            
+        result = s[0]
+      
+    
+        for i in range(len(s) - 1):
+           
+            
+            if s[i] <= s[i + 1]:
+                result = result + s[i + 1] #if a later charecter is behind the former one  
+                                            #in the alphabeta table, put the leter one behind the 
+                                            #leter one.
+            else:
+                break
+        return result
+        
+
+    
+    
+    len_s = len(s)
+    while len_s > 0:
+        currentStr = continuumStr(s)
+        
+        
+                                                
+        if len(targetStr) < len(currentStr):  #if a first alphbeta string is shorter than the second
+                                                #alphabeta string, make the second one the target string
+            targetStr = currentStr
+        
+        index = len(targetStr)
+      
+        len_s = len_s - index
+       
+        s = s[index : ]
+        
+        
+        
+        
+    return targetStr
+          
