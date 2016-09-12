@@ -41,7 +41,13 @@ def longestStr(s):
                                                 #alphabeta string, make the second one the target string
             targetStr = currentStr
         
-        index = len(targetStr)
+        index = len(targetStr)  #这个地方有一个bug，正确的写法是index = len(currentStr),并把这一行提前到if条件句的前面，
+                                #原因是，引人变量index是为了后面的s = s[index : ], 也就是每取出一段alphabeta排列的字符串后(currentStr)，
+                                #要把取出的这段字符串从原字符串中删除，为了删除它，我们要先知道他的长度，然后让新字符串从s[index]处开始，
+                                #就实现了删除取出的这段字符串的目的。如果index = len(targetStr),会出现两种情况，一种情况是len(targetStr) <= len(currentStr),
+                                #这时候，程序运行正确；另一种情况是len(targetStr) > len(currentStr)，这是时候程序的运行违背了我们的本义，我们本来要从原字符串
+                                #从第一个字母开始，删除长度为len(currentStr)的字符串，实际运行的时候，因为len(currentStr)并没有赋值给len(targetStr)，
+                                #实际上，删除的是len(targetStr)长度的字符串，明显多删除了一些字符。
       
         len_s = len_s - index
        
