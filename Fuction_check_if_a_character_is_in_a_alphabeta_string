@@ -1,0 +1,95 @@
+#This is my code, my tutor's code will be given under my code, to compare the styles between them.
+
+
+def isIn(char, aStr):
+    """
+    char: a singe charecter
+    aStr: an alphabeta string
+    """
+    if len(aStr) == 0:
+        return False
+    elif len(aStr) == 1:
+        if char == aStr:
+            return True
+        else:
+            return False
+    
+    else:
+        low = 0
+        high = len(aStr)                #I used to write this line in this way: high = len(aStr) - 1, because I thought
+                                        #that s[a : b] can go through from s[a] to s[b], including s[b], I was wrong, it can only 
+                                        #go through from s[a] to s[b], excluding s[b], it is a hiden bug, in some case, the code will
+                                        #get the right output, in some case, it will not. It will escape some character in the string,
+                                        #if the character you want to check is in the string and happens to be escaped in the string, 
+                                        it will give the wrong answer.
+                                        #
+                                        #and I used to write s[a , b] for s[a : b], mixing it with range(a, b), it should be avoided.
+        middle = int((low + high) / 2)
+       
+        if char == aStr[middle]:
+            return True
+        elif char > aStr[middle]:
+            low = middle + 1
+            return isIn(char, aStr[low : high])
+        else:
+            high = middle 
+            return isIn(char, aStr[low : high])
+            
+            
+            
+#############
+"""
+this is my tutor's code
+
+"""
+
+def isIn(char, aStr):
+   '''                                                                    
+   char: a single character
+   aStr: an alphabetized string
+   
+   returns: True if char is in aStr; False otherwise     #diff1: his docstring is more accurate, this line is what his code has, and mine not.
+                                                          #He tells what to return.
+   '''
+   # Base case: If aStr is empty, we did not find the char. #diff2: he writes comments for each part of the code.
+   if aStr == '':
+      return False
+
+   # Base case: if aStr is of length 1, just see if the chars are equal
+   if len(aStr) == 1:
+      return aStr == char
+
+   # Base case: See if the character in the middle of aStr equals the 
+   #   test character 
+   midIndex = len(aStr)//2                                  #diff3: he uses len(aStr)//2 for midIndex, and I use int((low + high)/2)
+                                                            #for the middle character's index with the variable name 'middle', here the variable
+                                                            #name 'midIndex' is more descriptive than just 'index', and len(aStr)//2 is more simple
+                                                            #than what I write.
+                                                            
+                                                            
+   midChar = aStr[midIndex]                                 #diff4: he uses a variable midChar for aStr[midIndex], I do not, I write aStr[middle],which is my aStr[midIndex]
+   if char == midChar:                                      #everywhere
+      # We found the character!
+      return True
+   
+   # Recursive case: If the test character is smaller than the middle 
+   #  character, recursively search on the first half of aStr
+   elif char < midChar:
+      return isIn(char, aStr[:midIndex])                   #diff5: 
+
+   # Otherwise the test character is larger than the middle character,
+   #  so recursively search on the last half of aStr
+   else:
+      return isIn(char, aStr[midIndex+1:])                 #diff6:
+      
+      ##############
+      """"
+      #1.What I learned from this?
+      #2.write comments for each part of your code, and for the key lines and hard to understand lines of your code.
+      #3.use a variable for a changing value that repeatly appear in your code.
+      #4. try to make you code simple, clean and easy to understand.
+      
+      
+
+
+            
