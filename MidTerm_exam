@@ -1,0 +1,66 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Oct  2 16:12:58 2016
+
+@author: ibm
+"""
+a = {'a' : 1, 'b' : 2, 'c' : 3}
+
+b = {'a' : 2, 'b' : 3, 'd' : 4}
+
+def f(x, y):
+    return str(x) + str(y)
+
+def dict_interdiff(d1, d2):
+	#get a list of commom keys
+    def common_keys(a, b):
+        keys_a = a.keys()
+        keys_b = b.keys()
+        result = []
+        for i in keys_a:
+            if i in keys_b:
+                result.append(i)
+            #for i in keys_b:
+                #result.append(i)
+        return result
+		#get a value for a common key
+    def inter_value(key):
+        v1 = d1.get(key)
+        v2 = d2.get(key)
+        value = f(v1, v2)
+        return value
+
+		#get a dictionary whose keys is 
+		#the list of common keys of two 
+		#dictionary m and n, and values
+		#are of each value of a common key.
+    def inter_dict(m, n):
+        ans = {}
+        the_common_keys = common_keys(m, n)
+        for i in the_common_keys:
+            ans[i] = inter_value(i)
+        return ans
+	
+	#get the remain part after taking away 
+	#the comman keys and their values
+	#of two dictionary a and b
+    def diff_dict(a, b ):
+        common_keys_1 = common_keys(a, b)
+        for i in common_keys_1:
+            del(a[i])
+            del(b[i])
+        for j in b:
+            a[j] = b[j]
+        return a
+	#combnate the inter part of diff part
+#    def inter_diff(m, n):
+#        inter = inter_dict(m, n)
+#        diff = diff_dict(m, n)
+#        for i in diff:
+#            inter[i] = diff[i]
+#        return inter
+    
+    return (inter_dict(d1, d2), diff_dict(d1, d2))
+ 
+ 
+s = dict_interdiff(a, b)
