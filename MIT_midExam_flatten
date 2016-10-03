@@ -1,0 +1,61 @@
+def flatten(aList):
+    ''' 
+    aList: a list 
+    Returns a copy of aList, which is a flattened version of aList 
+    '''
+    def seq_insert(L1, L2, count):
+        """
+        L1: a list
+        L2: a list
+        count: int
+        insert L2 into L1 at index count, then break L2 into element in L1.
+        """
+        L2.reverse()
+    
+        for i in L2:
+            
+            L1.insert(count, i)
+
+
+   
+    def break_up(a):
+        """
+        a: a list
+        break element as list in list a into elements in list a for a time. 
+        """
+        new_list = a[:]
+        count = 0
+        for i in a:
+    
+            if type(i) == list:
+                sub_list = i[:]
+    
+                if len(i) > 0:
+                        count = new_list.index(sub_list)
+                        seq_insert(new_list, sub_list, count)
+                new_list.remove(i)
+    
+        return new_list
+    
+    def recur_break(a_list):
+        """
+        a_list: a list
+        a recurtion break down of a_list
+        """
+        num = 1
+        result = 1
+        neo_list = a_list[:]
+        for i in a_list:
+            if type(i) == list and len(i) == 0:
+                neo_list.remove(i)
+            elif type(i) == list and len(i) > 0:
+                num =0
+            result *= num
+        if result == 1:
+            return neo_list
+        elif result == 0:
+            neo_list = break_up(neo_list)
+            return recur_break(neo_list)
+        
+    return recur_break(aList)
+    
